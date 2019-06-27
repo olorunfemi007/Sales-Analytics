@@ -1,0 +1,58 @@
+{
+  "routes": [
+    {
+      "path": "/webapp/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/resources"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/webapp/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources"
+      },
+      "description": "SAPUI5 Test Resources"
+    },
+    {
+      "path": "/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/resources"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources"
+      },
+      "description": "SAPUI5 Test Resources"
+    },
+    {
+      "path": "/hana",
+      "target": {
+        "type": "destination",
+        "name": "hana"
+      },
+      "description": "hana"
+    },
+    {
+      "path": "/hana_connect",
+      "target": {
+        "type": "destination",
+        "name": "hana_connect"
+      },
+      "description": "hana_connect"
+    }
+  ],
+  "welcomeFile": "/webapp/test/flpSandbox.html",
+  "sendWelcomeFileRedirect": true
+}
