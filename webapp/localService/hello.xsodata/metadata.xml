@@ -1,0 +1,11 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0">
+	<edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="2.0">
+		<Schema xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices"
+			xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm"
+			Namespace="helloodata.hello">
+			<EntityType Name="Customer_infoType">
+				<Key><PropertyRef Name="Sales_Document"/></Key><Property Name="Sales_Document" Type="Edm.String" Nullable="false" MaxLength="10"/><Property Name="Created_On" Type="Edm.String" MaxLength="10"/><Property Name="Distribution_Channel" Type="Edm.String" MaxLength="2"/><Property Name="coordinates" Type="Edm.String" MaxLength="23"/><Property Name="Net_value" Type="Edm.Int64"/></EntityType>
+			<EntityContainer Name="hello" m:IsDefaultEntityContainer="true"><EntitySet Name="Customer_info" EntityType="helloodata.hello.Customer_infoType"/></EntityContainer>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

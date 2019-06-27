@@ -1,0 +1,55 @@
+<mvc:View xmlns="sap.m" xmlns:semantic="sap.f.semantic" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:mvc="sap.ui.core.mvc" controllerName="sellapp.sellApp.controller.Detail">
+
+	<semantic:SemanticPage id="detailPage" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
+		<semantic:titleHeading>
+			<Title id="text_title" text="Document No: {Sales_Document}"/>
+		</semantic:titleHeading>
+		<semantic:headerContent>
+			<ObjectAttribute id="price_title" title="{i18n>priceTitle}">
+			    <customContent>
+			        <Button xmlns="sap.m" text="Button" id="button0"/>
+			    </customContent>
+			</ObjectAttribute>
+			
+			<OverflowToolbar id="otb1">
+	<SegmentedButton id="seg_butt" tooltip="Analytics">
+			<Button id="butt1" type="Transparent" icon="sap-icon://column-chart-dual-axis" tooltip="Column Chart" press="onShowHello"/>
+			<Button id="butt2" type="Transparent" icon="sap-icon://choropleth-chart" tooltip="Choroplet" press="onShowMap"/>
+		</SegmentedButton>
+	</OverflowToolbar>
+
+		</semantic:headerContent>
+		<!--Semantic ShareMenu Buttons-->
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press=".onSendEmailPress"/>
+		</semantic:sendEmailAction>
+
+		<semantic:shareInJamAction>
+			<semantic:ShareInJamAction id="shareInJam" visible="{FLP>/isShareInJamActive}" press=".onShareInJamPress"/>
+		</semantic:shareInJamAction>
+
+		<semantic:saveAsTileAction>
+			<footerbar:AddBookmarkButton id="shareTile" title="{detailView>/saveAsTileTitle}"/>
+		</semantic:saveAsTileAction>
+
+		<semantic:closeAction>
+			<semantic:CloseAction id="closeColumn" press=".onCloseDetailPress"/>
+		</semantic:closeAction>
+
+		<semantic:fullScreenAction>
+			<semantic:FullScreenAction id="enterFullScreen" visible="{= !${device>/system/phone} &amp;&amp; !${sellApp>/actionButtonsInfo/midColumn/fullScreen}}" press=".toggleFullScreen"/>
+		</semantic:fullScreenAction>
+		<semantic:exitFullScreenAction>
+			<semantic:ExitFullScreenAction id="exitFullScreen" visible="{= !${device>/system/phone} &amp;&amp; ${sellApp>/actionButtonsInfo/midColumn/fullScreen}}" press=".toggleFullScreen"/>
+		</semantic:exitFullScreenAction>
+
+	<semantic:content>
+
+	    <ActionSelect id="select0"/>
+	    <mvc:XMLView id="test_view" viewName="sellapp.sellApp.view.View2"/>
+
+	</semantic:content>
+
+	</semantic:SemanticPage>
+
+</mvc:View>

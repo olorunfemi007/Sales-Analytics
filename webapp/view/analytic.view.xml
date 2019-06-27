@@ -1,0 +1,70 @@
+<mvc:View xmlns="sap.m" xmlns:viz="sap.viz.ui5.controls" xmlns:layout="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" xmlns:viz.data="sap.viz.ui5.data" xmlns:vk="sap.ui.vk" xmlns:vbm="sap.ui.vbm" xmlns:core="sap.ui.core" controllerName="sellapp.sellApp.controller.analytic" height="100%">
+		<Page id="page_analytic" title="{Sales_Document}" showNavButton="true" navButtonPress="onNavBack">
+    <layout:FixFlex id="chartFixFlex" minFlexSize="250">
+        <!--Below is the setting panel -->
+        <layout:fixContent>
+            <Panel id="settingsPanel" class="panelStyle" expandable="true" expanded="true" headerText="Settings" width="auto">
+                <content>
+                    <HBox id="d1" class="settingsHBox">
+                    <VBox id="d2" class="settingsBox">
+                        <Label id="d3" text="{/destset/name}" design="Bold" class="settingsLabel"/>
+                        <RadioButtonGroup id="datasetRadioGroup" buttons="{path: '/destset/values'}">
+                            <buttons>
+                                <RadioButton id="d4" class="settingsRadio" text="{name}" select="onDatasetSelected"/>
+                            </buttons>
+                        </RadioButtonGroup>
+                    </VBox>
+                    <VBox id="d5" class="settingsBox">
+                        <Label id="d6" text="{/series/name}" design="Bold" class="settingsLabel"/>
+                        <RadioButtonGroup id="seriesRadioGroup" buttons="{path: '/series/values'}">
+                            <buttons>
+                                <RadioButton id="d7" class="settingsRadio" text="{name}" select="onSeriesSelected"/>
+                            </buttons>
+                        </RadioButtonGroup>
+                    </VBox>
+                    <VBox id="d8" class="settingsBox">
+                        <Label id="d9" text="{/destLabel/name}" design="Bold" class="settingsLabel"/>
+                        <Switch id="d10" class="settingsSwitch" state="{/destLabel/defaultState}" change="onDataLabelChanged">
+                            <layoutData>
+                                <FlexItemData id="d11" growFactor="1"/>
+                            </layoutData>
+                        </Switch>
+                    </VBox>
+                    <VBox id="d12" class="settingsBox">
+                        <Label id="d13" text="{/axisTitle/name}" design="Bold" class="settingsLabel"/>
+                        <Switch id="d14" class="settingsSwitch" state="{/axisTitle/defaultState}" change="onAxisTitleChanged">
+                            <layoutData>
+                                <FlexItemData id="d15" growFactor="1"/>
+                            </layoutData>
+                        </Switch>
+                    </VBox>
+                    </HBox>
+                </content>
+            </Panel>
+        </layout:fixContent>
+        <layout:flexContent>
+            <viz:Popover id="idPopOver"/>
+            <VBox id="dgg2" backgroundDesign="Solid" height="50%">
+            <viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}" height="50%" width="100%" vizType="column">
+                <viz:dataset>
+                    <viz.data:FlattenedDataset data="{/data}">
+                        <viz.data:dimensions>
+                            <viz.data:DimensionDefinition name="Description" value="{Description}"/>
+                        </viz.data:dimensions>
+                        <viz.data:measures>
+                            <viz.data:MeasureDefinition name="Net Value" value="{Net_value}"/>
+                        </viz.data:measures>
+                    </viz.data:FlattenedDataset>
+                </viz:dataset>
+
+                <viz:feeds>
+                    <viz.feeds:FeedItem id="valueAxisFeed" uid="valueAxis" type="Measure" values="Net Value"/>
+                    <viz.feeds:FeedItem id="categoryAxisFeed" uid="categoryAxis" type="Dimension" values="Description"/>
+                </viz:feeds>
+            </viz:VizFrame>
+            </VBox>
+            
+        </layout:flexContent>
+    </layout:FixFlex>
+    </Page>
+</mvc:View>

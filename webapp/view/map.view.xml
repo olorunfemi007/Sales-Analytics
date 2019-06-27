@@ -1,0 +1,54 @@
+<mvc:View controllerName="sellapp.sellApp.controller.map"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m"
+	xmlns:vbm="sap.ui.vbm" xmlns:l="sap.ui.layout" height="100%"
+	displayBlock="true">
+	<l:FixFlex class="fixFlexFixedSize">
+		<l:fixContent>
+			<Panel expandable="true" expanded="{= !${device>/system/phone} }"
+				headerText="Description">
+				<headerToolbar>
+					<Toolbar>
+						<Title id="fhf" text="{Sales_Document}" />
+						<ToolbarSpacer />
+						<Button id="btnLegend" icon="sap-icon://legend" press="onPressLegend"
+							tooltip="Hide legend" />
+						<Button id="btnResize" icon="sap-icon://resize" press="onPressResize"
+							tooltip="Minimize" />
+					</Toolbar>
+				</headerToolbar>
+				<content>
+					<VBox id="idc" class="sapUiTinyMargin">
+						<Text id="idd"
+							text="You can use circles to visualize specific, quantitative parameters. The radius is given in pixels – constant screen size. A use case for circles on a map might be showing the size of the biggest towns in a region or the revenue of a company per production location." />
+						<Text id="ilc" class="sapUiTinyMarginTop" text="See also: " />
+						<Link id="isc" class="sapUiLargeMarginLeft" text="Visual business best practices"
+							target="_blank" href="/hxehost:4390//helloodata/map_api.xsjs" />
+					</VBox>
+				</content>
+			</Panel>
+		</l:fixContent>
+		<l:flexContent>
+			<vbm:AnalyticMap id="vbi" width="100%" xmlns:l="sap.ui.layout"
+				height="100%" initialPosition="0;10;0" regionClick="onRegionClick"
+				regionContextMenu="onRegionContextMenu">
+				
+				<vbm:vos>
+					<vbm:Circles items="{/data}" click="onClickItem"
+						contextMenu="onContextMenuItem">
+						<vbm:Circle position="{coordinates}" tooltip="{Description} Total Purchase: {Net_value}"
+							radius="7px" color="rgba(92,186,230,0.6)" colorBorder="rgb(185, 8, 8)"
+							hotDeltaColor="rgb(185, 8, 8)" click="onClickCircle"
+							contextMenu="onContextMenuCircle" />
+							
+					</vbm:Circles>
+				</vbm:vos>
+				
+				<vbm:legend>
+					<vbm:Legend id="legend" caption="Legend" items="">
+						<vbm:LegendItem text="Circle – radius in px" color="rgb(185, 8, 8)" />
+					</vbm:Legend>
+				</vbm:legend>
+			</vbm:AnalyticMap>
+		</l:flexContent>
+	</l:FixFlex>
+</mvc:View>

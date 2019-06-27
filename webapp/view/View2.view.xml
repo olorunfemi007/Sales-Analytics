@@ -1,0 +1,26 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" controllerName="sellapp.sellApp.controller.Detail">
+	<!--<Button id="id1" text="Hello World" press="onShowHello"/>-->
+
+	<FlexBox width="100%" id="box0" renderType="Bare"><items><Label text="Description" width="100%" id="label0" design="Bold"/><Label text="{Description}" width="100%" id="label0_1549054461207"/><Label text="Vessel Name" width="100%" id="label1" design="Bold"/><Label text="{Vessel_Name}" width="100%" id="label2"/></items>
+		
+		
+			
+				
+			
+			
+				
+			
+			
+				
+			
+		
+	
+</FlexBox><FlexBox width="100%" id="box0_1549054966234" alignContent="Inherit" height="15%"/><FlexBox xmlns:mvc="sap.ui.core.mvc" xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns="sap.m" width="100%" id="box0_copy3" renderType="Bare" backgroundDesign="Translucent" height="15%">
+	    <items>
+	        <Label text="Pricing Proc." width="100%" id="label0_copy3" design="Bold"/>
+	        <Label text="{Pricing_procedure}" width="100%" id="label0_1549054461207_copy3"/>
+	        <Label text="Net Price" width="100%" id="label1_copy3" design="Bold"/>
+	        <Label text="{Statistic_currency}{Net_value}" width="100%" id="label2_copy3"/></items>
+	    
+	</FlexBox><VBox width="100%" direction="Column" id="vbox1"><items><FlexBox width="50%" id="box0_1549055722481" renderType="Bare"><items><Label width="100%" id="label1_1549055790726" text="Created By" design="Bold"/><Label text="{Created_By}" width="100%" id="label2_1549055798710"/></items></FlexBox></items></VBox>
+</mvc:View>
